@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "createdAt": "19 December 2021",
+    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/1.jpg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis.",
+    "user": {
+      "id": "u1",
+      "username": "vadimnotjustdev",
+      "name": "Vadim Savin"
+    },
+    "nofLikes": 34
+ 
+  },
+  {
+    "id": "2",
+    "createdAt": "19 December 2021",
+    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/2.jpg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis.",
+    "user": {
+      "id": "u1",
+      "username": "vadimnotjustdev",
+      "name": "Vadim Savin"
+    },
+    "nofLikes": 34
+  },
+  {
+    "id": "3",
+    "createdAt": "19 December 2021",
+    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/3.jpg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis.",
+    "user": {
+      "id": "u1",
+      "username": "vadimnotjustdev",
+      "name": "Vadim Savin"
+    },
+    "nofLikes": 34
+  },
+  {
+    "id": "4",
+    "createdAt": "19 December 2021",
+    "image": "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/4.jpg",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic repellendus unde blanditiis.",
+    "user": {
+      "id": "u1",
+      "username": "vadimnotjustdev",
+      "name": "Vadim Savin"
+    },
+    "nofLikes": 34
+  }
+]
