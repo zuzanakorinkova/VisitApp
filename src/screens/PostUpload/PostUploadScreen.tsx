@@ -101,7 +101,6 @@ const PostUploadScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.headerText, {top: 50}]}>Upload a post</Text>
       {/* <BackButton /> */}
       <Camera style={styles.camera} type={cameraType} ratio="4:3" flashMode={flash} onCameraReady={() => setIsCameraReady(true)} ref={camera}/>
       <View style={[styles.buttonsContainer, {top: 100}]}>

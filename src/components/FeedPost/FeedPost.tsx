@@ -7,6 +7,7 @@ import fonts from '../../theme/fonts';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {IPost} from '../../types/models';
 import DoublePressable from '../DoublePressable';
+import { useNavigation } from '@react-navigation/native';
 
 interface IFeedPost  {
   post: IPost
@@ -14,6 +15,7 @@ interface IFeedPost  {
 
 const FeedPost = ({post}: IFeedPost) => {
   const [isLiked, setIsLiked] = useState(false)
+  const navigation = useNavigation();
 
   const toggleLike = () => {
     setIsLiked(v => !v)
@@ -38,8 +40,9 @@ const FeedPost = ({post}: IFeedPost) => {
       </View>
        <View style={styles.footer} >
               <View>
-                <Text style={{color: colors.colors.text, fontWeight: fonts.weight.semibold, fontSize: fonts.size.md}}><Text style={{fontWeight: fonts.weight.normal}}>Posted by</Text> {post.user.username}</Text>
-             
+                <Text onPress={() => {console.log('navigate to user')}} style={{color: colors.colors.text, fontWeight: fonts.weight.semibold, fontSize: fonts.size.md}}>
+                  <Text style={{fontWeight: fonts.weight.normal}}>Posted by</Text> {post.user.username}
+                  </Text>
               </View>
         <View style={styles.like}>
            <AntDesign onPress={toggleLike} name={isLiked ? "heart" : "hearto"} size={28} color={isLiked ? colors.colors.accent : colors.colors.text} />

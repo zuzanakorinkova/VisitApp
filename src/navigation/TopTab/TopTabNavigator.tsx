@@ -5,6 +5,7 @@ import colors from '../../theme/colors';
 import { createMaterialTopTabNavigator, MaterialTopTabNavigationEventMap, MaterialTopTabNavigationOptions } from '@react-navigation/material-top-tabs';
 
 import { IPlace } from '../../types/models';
+import { StackRouterOptions, TabRouterOptions } from '@react-navigation/native';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -26,8 +27,8 @@ export interface ITopTabNav {
   screenParamsOne?: [] | {};
   screenParamsTwo?: [] | {};
   screenParamsThree?: [] | {};
-  TabScreenOne: React.FC<ChildProps>;
-  TabScreenTwo:  React.FC;
+  TabScreenOne: React.FC<ChildProps> | React.FC<any> ;
+  TabScreenTwo:  React.FC | React.FC<any>;
   TabScreenTitleOne: string;
   TabScreenTitleTwo: string;
   left?: DimensionValue;

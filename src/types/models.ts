@@ -3,8 +3,8 @@ export interface IPost {
     createdAt: string;
     image?: string;
     description: string;
-    // user: IUser;
-    // nofLikes: number;
+    user: IUser;
+    nofLikes: number;
    }
    
    export interface IUser {

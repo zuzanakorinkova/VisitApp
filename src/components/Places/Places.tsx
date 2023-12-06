@@ -24,17 +24,21 @@ const Places = ({place, category}: ChildProps) => {
     setIsLiked(v => !v)
   }
   //const handleNavigate = () => {
-    // TODO : Figure the likes global state - maybe later in database?
+    // TODO : Figure the likes global state - maybe later in database?s
 //     navigation.navigate("SinglePlace", {id: place.id})
 //   }
-//   const navigation = useNavigation();
+  const navigation = useNavigation();
+
+  const navigateToPlace = () => {
+    navigation.navigate('SinglePlace', {placeId: place.id, place: place});
+  }
 
   
 // TODO: solve - how to show the place depending on what category are we on here
 
 if(placeCategory == category){
   return (
-    <Pressable onPress={() => {}} style={styles.wrapper}>
+    <Pressable onPress={navigateToPlace} style={styles.wrapper}>
       <View style={styles.card}>
           <Image style={styles.image} source={{uri: place.mainImage}} />
           <Text style={[styles.title,{color: colors.colors.text}]}>{place.title}</Text>
