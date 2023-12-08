@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     buttonsContainer: {
         // position: 'absolute',
         flexDirection: 'row',
-        justifyContent: 'space-around',
         alignItems: 'center',
+        padding: 30,
         width: '100%',  
         position: 'absolute',
     },

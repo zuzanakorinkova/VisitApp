@@ -20,7 +20,6 @@ const PlacesView = ({places, category}: ChildProps) => {
         renderItem={({item}) => item && <Places place={item} category={category}/>} 
         ListFooterComponent={<View style={{height: 150}}/>}
         />
-
   )
 }
 

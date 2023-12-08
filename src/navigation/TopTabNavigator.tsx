@@ -1,10 +1,10 @@
 import { View, Text, DimensionValue } from 'react-native'
 import React, { PropsWithChildren } from 'react'
-import fonts from '../../theme/fonts';
-import colors from '../../theme/colors';
+import fonts from '../theme/fonts';
+import colors from '../theme/colors';
 import { createMaterialTopTabNavigator, MaterialTopTabNavigationEventMap, MaterialTopTabNavigationOptions } from '@react-navigation/material-top-tabs';
 
-import { IPlace } from '../../types/models';
+import { IPlace } from '../types/models';
 import { StackRouterOptions, TabRouterOptions } from '@react-navigation/native';
 
 

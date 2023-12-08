@@ -4,7 +4,7 @@ import {Camera, CameraPictureOptions, CameraRecordingOptions, CameraType, FlashM
 import colors from '../../theme/colors'
 import styles from './styles'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-// import BackButton from '../../components/BackButton/BackButton';
+import BackButton from '../../components/BackButton'
 
 
 const flashModes = [
@@ -100,15 +100,15 @@ const PostUploadScreen = () => {
   // camera ratios: 16:9, 1:1, 4:3
 
   return (
-    <View style={styles.container}>
-      {/* <BackButton /> */}
+    <View style={styles.container}>    
       <Camera style={styles.camera} type={cameraType} ratio="4:3" flashMode={flash} onCameraReady={() => setIsCameraReady(true)} ref={camera}/>
-      <View style={[styles.buttonsContainer, {top: 100}]}>
-        <MaterialIcons name="close" size={30} color={colors.colors.text} />
-        <MaterialIcons name={flashModeToIcon[flash]} size={30} color={colors.colors.text} onPress={flipFlash}/>
-        <MaterialIcons name="settings" size={30} color={colors.colors.text} />
-      </View>
-      <View style={[styles.buttonsContainer, {bottom: 50}]}>
+        <View style={[styles.buttonsContainer, {top: 60, justifyContent: 'flex-end'}]}>
+        <BackButton />
+          <MaterialIcons name={flashModeToIcon[flash]} size={30} style={{paddingRight: 30}} color={colors.colors.text} onPress={flipFlash}/>
+          <MaterialIcons name="settings" size={30} color={colors.colors.text} />
+        </View>
+
+      <View style={[styles.buttonsContainer, {bottom: 50, justifyContent: 'space-between'}]}>
         <MaterialIcons name="photo-library" size={30} color={colors.colors.text} />
        { isCameraReady && 
        <Pressable onPress={takePicture} onLongPress={startRecording} onPressOut={stopRecording}>

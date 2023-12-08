@@ -12,11 +12,12 @@ const FeedGridView = ({data, ListHeaderComponent}: IFeedGridView) => {
   return (
     <FlatList data={data}
     renderItem={({item}) => 
-    <FeedGridItem post={item} /> }
+    <FeedGridItem 
+    post={item} /> }
     numColumns={2}
     showsVerticalScrollIndicator={false} 
     ListHeaderComponent={ListHeaderComponent}
-    style={{marginHorizontal: -5}}
+    style={{marginHorizontal: -2}}
     />
   )
 }

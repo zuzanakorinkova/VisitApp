@@ -6,9 +6,16 @@ import colors from '../../theme/colors'
 import user from '../../assets/data/user.json'
 import Button from '../../components/Button/Button';
 import { useNavigation } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
+import { ProfileNavigationProp, MyProfileNavigationProp, MyProfileRouteProp, UserProfileRouteProp } from '../../navigation/types';
+
 
 const ProfileHeader = () => {
-  const navigation = useNavigation();
+  const route = useRoute<UserProfileRouteProp | MyProfileRouteProp>();
+  const navigation = useNavigation<ProfileNavigationProp>();
+
+  //const {userId} = route.params // later import data with ID from database
+  
     return (
       <View style={styles.container}>
         <View>
@@ -23,8 +30,8 @@ const ProfileHeader = () => {
             </View>
             <Text style={styles.bio}>{user.bio}</Text>
             <View style={styles.buttons}>
-              <Button text="Edit Profile" onPress={() => {}} backgroundColor={colors.colors.primaryButton} color={colors.colors.text} />
-              <Button text="Another Button" onPress={() => console.warn("On Edit profile")} backgroundColor={colors.colors.text} color={colors.colors.black} margin={10} />
+              <Button text="Edit Profile" onPress={() => navigation.navigate("EditProfile")} backgroundColor={colors.colors.primaryButton} color={colors.colors.text} />
+              <Button text="Upload Post" onPress={() =>  navigation.navigate("PostUpload")} backgroundColor={colors.colors.text} color={colors.colors.black} margin={10} />
             </View>
         </View>
     

@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import TopTabNavigator from '../../navigation/TopTab/TopTabNavigator';
+import TopTabNavigator from '../../navigation/TopTabNavigator';
 import PlacesView from '../../components/PlacesView';
 import FeedScreen from '../Feed';
 import places from '../../assets/data/places.json';

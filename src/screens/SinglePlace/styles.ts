@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        aspectRatio: 4/3,
-        borderBottomLeftRadius: 30,
-        borderBottomRightRadius: 30,
+        aspectRatio: 4/2,
+        borderBottomLeftRadius: 50,
+        borderBottomRightRadius: 50,
     },
     headerWrapper: {
         marginTop: 10,
@@ -36,16 +36,6 @@ const styles = StyleSheet.create({
         fontSize: fonts.size.md,
         marginLeft: 5,
         fontWeight: fonts.weight.semibold,
-    },
-    location: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 5
-    },
-    locationText: {
-        color: colors.colors.inactive,
-        marginLeft: 5,
-        fontSize: fonts.size.md
     },
     iconContainer: {
         backgroundColor: colors.colors.textOpacity,

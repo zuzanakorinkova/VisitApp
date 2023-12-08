@@ -4,16 +4,17 @@ import { useRoute} from '@react-navigation/native';
 import styles from './styles';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../../theme/colors';
-import TopTabNavigator from '../../navigation/TopTab/TopTabNavigator';
+import TopTabNavigator from '../../navigation/TopTabNavigator';
 import PlaceGallery from '../../components/PlaceGallery';
 import PlaceDescription from '../../components/PlaceDescription';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import places from '../../assets/data/places.json';
-// import BackButton from '../../components/BackButton/BackButton';
+import BackButton from '../../components/BackButton/BackButton';
+import { SinglePlaceRouteProp } from '../../navigation/types';
 
 
 const SinglePlace = () => {
-const route = useRoute();
+const route = useRoute<SinglePlaceRouteProp>();
 
 //const {placeId} = route.params
 // query place data from database with placeId
@@ -25,10 +26,7 @@ const {place} = route.params
   return (
     <View style={[styles.wrapper, {backgroundColor: colors.colors.background}]}>
             <Image style={styles.image} source={{uri: place.mainImage}} />
-
-            {/* <BackButton /> */}
-         
-      
+            <BackButton />
           <View style={styles.headerWrapper}>
              <View style={styles.titleWrapper}>
                 <Text style={[styles.title, {color: colors.colors.text}]}>{place.title}</Text>
@@ -37,9 +35,6 @@ const {place} = route.params
                 <Text style={[styles.rating, {color: colors.colors.text}]}>{place.nofLikes}</Text>
             </View>
               </View>
-                <View style={styles.location}>
-                  <Ionicons name="location" size={16} color={colors.colors.inactive} />
-                </View>
             </View>
            
       

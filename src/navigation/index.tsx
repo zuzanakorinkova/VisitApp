@@ -6,10 +6,10 @@ import SinglePlace from '../screens/SinglePlace';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import colors from '../theme/colors';
 import BottomTabNavigator from './BottomTabNavigatior';
+import { RootNavigator } from './types';
 
 
-
-const Stack = createNativeStackNavigator(); // (Navigator, Screen)
+const Stack = createNativeStackNavigator<RootNavigator>(); // (Navigator, Screen)
 
 
 const Navigation = () => {
