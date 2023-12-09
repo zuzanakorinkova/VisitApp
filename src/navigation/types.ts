@@ -17,10 +17,10 @@ export type MyProfileRouteProp = RouteProp<BottomTabNavigatorParamList, 'Profile
 
 
 export type HomeStackNavigatorParamList = {
-    Home: undefined;
+    HomeStack: undefined;
     SinglePlace: {place: Object | any, placeId: string}
 }
-export type HomeNavigationProp = NativeStackNavigationProp<HomeStackNavigatorParamList, 'Home'>
+export type HomeNavigationProp = NativeStackNavigationProp<HomeStackNavigatorParamList, 'HomeStack'>
 export type SinglePlaceRouteProp = RouteProp<HomeStackNavigatorParamList, 'SinglePlace'>
 
 

@@ -14,8 +14,10 @@ const ProfileHeader = () => {
   const route = useRoute<UserProfileRouteProp | MyProfileRouteProp>();
   const navigation = useNavigation<ProfileNavigationProp>();
 
-  //const {userId} = route.params // later import data with ID from database
+  const {userId} = route.params // later import data with ID from database
   
+  console.warn('user', userId)
+
     return (
       <View style={styles.container}>
         <View>
