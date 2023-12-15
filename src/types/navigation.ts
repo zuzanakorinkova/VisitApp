@@ -4,6 +4,7 @@ import { RouteProp } from '@react-navigation/native';
 
 export type RootNavigator = {
     Home: undefined,
+    Auth: undefined,
 }
 export type BottomTabNavigatorParamList = {
     Discover: undefined;
@@ -41,3 +42,44 @@ export type ProfileStackNavigatorParamList = {
 }
 
 export type ProfileNavigationProp = NativeStackNavigationProp<ProfileStackNavigatorParamList, 'ProfileStack'>
+
+
+
+// Auth Stack Navigator
+export type AuthStackNavigatorParamList = {
+    'Sign in': undefined;
+    'Sign up': undefined;
+    'Confirm email': {username?: string};
+    'Forgot password': undefined;
+    'New password': undefined;
+  };
+  
+  export type SignInNavigationProp = NativeStackNavigationProp<
+    AuthStackNavigatorParamList,
+    'Sign in'
+  >;
+  
+  export type SignUpNavigationProp = NativeStackNavigationProp<
+    AuthStackNavigatorParamList,
+    'Sign up'
+  >;
+  
+  export type ConfirmEmailNavigationProp = NativeStackNavigationProp<
+    AuthStackNavigatorParamList,
+    'Confirm email'
+  >;
+  export type ConfirmEmailRouteProp = RouteProp<
+    AuthStackNavigatorParamList,
+    'Confirm email'
+  >;
+  
+  export type ForgotPasswordNavigationProp = NativeStackNavigationProp<
+    AuthStackNavigatorParamList,
+    'Forgot password'
+  >;
+  
+  export type NewPasswordNavigationProp = NativeStackNavigationProp<
+    AuthStackNavigatorParamList,
+    'New password'
+  >;
+  

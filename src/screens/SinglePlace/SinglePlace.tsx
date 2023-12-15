@@ -10,7 +10,7 @@ import PlaceDescription from '../../components/PlaceDescription';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import places from '../../assets/data/places.json';
 import BackButton from '../../components/BackButton/BackButton';
-import { SinglePlaceRouteProp } from '../../navigation/types';
+import { SinglePlaceRouteProp } from '../../types/navigation';
 
 
 const SinglePlace = () => {

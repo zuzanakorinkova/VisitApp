@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfileScreen from "../screens/Profile/ProfileScreen";
 import EditProfileScreen from "../screens/EditProfile/EditProfileScreen";
 import PostUploadScreen from "../screens/PostUpload/PostUploadScreen";
-import { ProfileStackNavigatorParamList } from "./types";
+import { ProfileStackNavigatorParamList } from "../types/navigation";
 
 
 const Stack = createNativeStackNavigator<ProfileStackNavigatorParamList>();

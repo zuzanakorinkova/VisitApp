@@ -5,7 +5,7 @@ import { AntDesign, Entypo, FontAwesome5 } from '@expo/vector-icons';
 import HomeStackNavigator from "./HomeStackNavigator";
 import FeedStackNavigator from "./FeedStackNavigator";
 import ProfileStackNavigator from "./ProfileStackNavigator";
-import { BottomTabNavigatorParamList } from "./types";
+import { BottomTabNavigatorParamList } from "../types/navigation";
 
 const Tab = createBottomTabNavigator<BottomTabNavigatorParamList>();
 

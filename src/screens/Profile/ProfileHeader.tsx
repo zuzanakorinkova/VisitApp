@@ -7,7 +7,7 @@ import user from '../../assets/data/user.json'
 import Button from '../../components/Button/Button';
 import { useNavigation } from '@react-navigation/native';
 import { useRoute } from '@react-navigation/native';
-import { ProfileNavigationProp, MyProfileNavigationProp, MyProfileRouteProp, UserProfileRouteProp } from '../../navigation/types';
+import { ProfileNavigationProp, MyProfileNavigationProp, MyProfileRouteProp, UserProfileRouteProp } from '../../types/navigation';
 
 
 const ProfileHeader = () => {

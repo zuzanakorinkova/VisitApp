@@ -5,7 +5,7 @@ import ProfileHeader from './ProfileHeader'
 import FeedGridView from '../../components/FeedGridView/FeedGridView'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ProfileNavigationProp, MyProfileNavigationProp, MyProfileRouteProp, UserProfileRouteProp } from '../../navigation/types'
+import { ProfileNavigationProp, MyProfileNavigationProp, MyProfileRouteProp, UserProfileRouteProp } from '../../types/navigation'
 
 
 

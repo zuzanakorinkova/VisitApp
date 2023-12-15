@@ -6,7 +6,8 @@ import SinglePlace from '../screens/SinglePlace';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import colors from '../theme/colors';
 import BottomTabNavigator from './BottomTabNavigatior';
-import { RootNavigator } from './types';
+import { RootNavigator } from '../types/navigation';
+import AuthStackNavigator from './AuthStackNavigator';
 
 
 const Stack = createNativeStackNavigator<RootNavigator>(); // (Navigator, Screen)
@@ -39,8 +40,9 @@ const linking: LinkingOptions<RootNavigator> = {
 const Navigation = () => {
 return (
     <NavigationContainer linking={linking} theme={DarkTheme}>
-        <Stack.Navigator initialRouteName='Home'>
+        <Stack.Navigator initialRouteName='Auth'>
             <Stack.Screen name="Home" component={BottomTabNavigator} options={{headerShown: false}} />
+            <Stack.Screen name="Auth" component={AuthStackNavigator} options={{headerShown: false}} />
         </Stack.Navigator>
     </NavigationContainer>
 )

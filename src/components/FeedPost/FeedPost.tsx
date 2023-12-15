@@ -8,7 +8,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import {IPost} from '../../types/models';
 import DoublePressable from '../DoublePressable';
 import { useNavigation } from '@react-navigation/native';
-import { FeedNavigationProp } from '../../navigation/types';
+import { FeedNavigationProp } from '../../types/navigation';
 
 interface IFeedPost  {
   post: IPost

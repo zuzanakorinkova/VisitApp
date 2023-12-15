@@ -6,7 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 import colors from '../../theme/colors';
 import { IPlace, ICategory } from '../../types/models';
-import { HomeNavigationProp } from '../../navigation/types';
+import { HomeNavigationProp } from '../../types/navigation';
 
 export interface ChildProps{
     place: IPlace,
