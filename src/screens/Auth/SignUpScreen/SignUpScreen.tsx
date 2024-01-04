@@ -134,7 +134,7 @@ const SignUpScreen = () => {
           secureTextEntry
           rules={{
             validate: (value: string) =>
-              value === pwd || 'Password do not match',
+              value === pwd || 'Passwords do not match',
           }}
         />
 

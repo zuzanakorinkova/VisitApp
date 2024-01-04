@@ -22,7 +22,7 @@ const SignInScreen = () => {
   const navigation = useNavigation<SignInNavigationProp>();
   const [loading, setLoading] = useState(false);
 
-  const {control, handleSubmit} = useForm<SignInInput>();
+  const {control, handleSubmit, reset} = useForm<SignInInput>();
 
   const onSignInPressed = async ({username, password}: SignInInput) => {
     if(loading){ 
@@ -32,11 +32,16 @@ const SignInScreen = () => {
 
     try {
       const response = await signIn({username, password})
+      if(response.nextStep.signInStep === 'CONFIRM_SIGN_UP') {
+        navigation.navigate('Confirm email',{username})
+      }
       console.log(response)
     }catch (e) {
-      Alert.alert('Oops', (e as Error).message)
+        Alert.alert('Oops', (e as Error).message)
+      
     }finally {
-      setLoading(false)
+      setLoading(false);
+      reset();
     }
   };
 

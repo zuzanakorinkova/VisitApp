@@ -11,7 +11,7 @@ import {
 import {useRoute} from '@react-navigation/native';
 import fonts from '../../../theme/fonts';
 import theme from '../../../theme/colors';
-import {confirmSignUp, resendSignUpCode, type ConfirmSignUpInput} from 'aws-amplify/auth';
+import {confirmSignUp, resendSignUpCode} from 'aws-amplify/auth';
 
 type ConfirmEmailData = {
   username: string;
@@ -50,11 +50,12 @@ const ConfirmEmailScreen = () => {
     navigation.navigate('Sign in');
   };
 
-  const onResendPress = async () => {
+  const onResendPress = async({username = usr}) => {
     try{
       // TODO: Fix
-      // await resendSignUpCode(usr)
-      Alert.alert('Check your email', 'The code has been sent')
+      await resendSignUpCode({username})
+      
+      Alert.alert('Check your email', 'The code has been sent (make sure you check spam folder as well)')
     }catch (e){
       Alert.alert('Oops', (e as Error).message)
     }
