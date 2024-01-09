@@ -1,28 +1,26 @@
-import { View, Text, Pressable } from 'react-native'
-import React, {ReactNode} from 'react'
+import {View, Text, Pressable} from 'react-native';
+import React, {ReactNode} from 'react';
 
 interface IDoublePressable {
-    onDoublePress?: () => void,
-    children: ReactNode;
+  onDoublePress?: () => void;
+  children: ReactNode;
 }
 
-const DoublePressable = ({onDoublePress = () => {}, children}: IDoublePressable) => {
+const DoublePressable = ({
+  onDoublePress = () => {},
+  children,
+}: IDoublePressable) => {
+  let lastTap = 0;
 
-    let lastTap = 0;
-
-    const handleDoublePress = () => {
-      const now = Date.now();
-      if (now - lastTap < 300) {
-        onDoublePress();
-      }
-  
-      lastTap = now;
+  const handleDoublePress = () => {
+    const now = Date.now();
+    if (now - lastTap < 300) {
+      onDoublePress();
     }
-  return (
-    <Pressable onPress={handleDoublePress}>
-      {children}
-    </Pressable>
-  )
-}
 
-export default DoublePressable
+    lastTap = now;
+  };
+  return <Pressable onPress={handleDoublePress}>{children}</Pressable>;
+};
+
+export default DoublePressable;

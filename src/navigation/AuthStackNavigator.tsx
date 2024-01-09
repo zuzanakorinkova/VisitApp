@@ -17,10 +17,38 @@ const AuthStackNavigator = () => {
         component={SignInScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="Sign up" component={SignUpScreen} options={{headerTintColor: theme.colors.accent, headerTitleStyle: {color: theme.colors.inactive}}} />
-      <Stack.Screen name="Confirm email" component={ConfirmEmailScreen} options={{headerTintColor: theme.colors.accent, headerTitleStyle: {color: theme.colors.inactive}}}  />
-      <Stack.Screen name="Forgot password" component={ForgotPasswordScreen} options={{headerTintColor: theme.colors.accent, headerTitleStyle: {color: theme.colors.inactive}}}  />
-      <Stack.Screen name="New password" component={NewPasswordScreen} options={{headerTintColor: theme.colors.accent, headerTitleStyle: {color: theme.colors.inactive}}}  />
+      <Stack.Screen
+        name="Sign up"
+        component={SignUpScreen}
+        options={{
+          headerTintColor: theme.colors.accent,
+          headerTitleStyle: {color: theme.colors.inactive},
+        }}
+      />
+      <Stack.Screen
+        name="Confirm email"
+        component={ConfirmEmailScreen}
+        options={{
+          headerTintColor: theme.colors.accent,
+          headerTitleStyle: {color: theme.colors.inactive},
+        }}
+      />
+      <Stack.Screen
+        name="Forgot password"
+        component={ForgotPasswordScreen}
+        options={{
+          headerTintColor: theme.colors.accent,
+          headerTitleStyle: {color: theme.colors.inactive},
+        }}
+      />
+      <Stack.Screen
+        name="New password"
+        component={NewPasswordScreen}
+        options={{
+          headerTintColor: theme.colors.accent,
+          headerTitleStyle: {color: theme.colors.inactive},
+        }}
+      />
     </Stack.Navigator>
   );
 };

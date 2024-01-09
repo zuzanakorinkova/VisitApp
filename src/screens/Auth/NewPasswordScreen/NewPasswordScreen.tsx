@@ -7,7 +7,7 @@ import {useForm} from 'react-hook-form';
 import {NewPasswordNavigationProp} from '../../../types/navigation';
 import theme from '../../../theme/colors';
 import fonts from '../../../theme/fonts';
-import { confirmResetPassword } from 'aws-amplify/auth';
+import {confirmResetPassword} from 'aws-amplify/auth';
 
 type NewPasswordType = {
   username: string;
@@ -17,29 +17,28 @@ type NewPasswordType = {
 
 const NewPasswordScreen = () => {
   const {control, handleSubmit} = useForm<NewPasswordType>();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const navigation = useNavigation<NewPasswordNavigationProp>();
 
-  const onSubmitPressed = async({username,newPassword,
-    confirmationCode}: NewPasswordType) => {
-      
-      if(loading){ 
-        return;
-      }
-      setLoading(true);
-  
+  const onSubmitPressed = async ({
+    username,
+    newPassword,
+    confirmationCode,
+  }: NewPasswordType) => {
+    if (loading) {
+      return;
+    }
+    setLoading(true);
+
     try {
-      await confirmResetPassword({username, newPassword, confirmationCode})
-       navigation.navigate('Sign in')
-         
-      }catch (e) {
-        
-        Alert.alert('Oops', (e as Error).message)
-        
-      }finally {
-        setLoading(false)
-      }
+      await confirmResetPassword({username, newPassword, confirmationCode});
+      navigation.navigate('Sign in');
+    } catch (e) {
+      Alert.alert('Oops', (e as Error).message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const onSignInPress = () => {
@@ -87,7 +86,7 @@ const NewPasswordScreen = () => {
           type="TERTIARY"
         />
       </View>
-      </ScrollView>
+    </ScrollView>
   );
 };
 

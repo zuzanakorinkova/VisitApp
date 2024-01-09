@@ -7,7 +7,7 @@ import {SignUpNavigationProp} from '../../../types/navigation';
 import fonts from '../../../theme/fonts';
 import theme from '../../../theme/colors';
 import {signUp} from 'aws-amplify/auth';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -26,29 +26,36 @@ const SignUpScreen = () => {
   const {control, handleSubmit, watch} = useForm<SignUpData>();
   const pwd = watch('password');
   const navigation = useNavigation<SignUpNavigationProp>();
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
-  const onRegisterPressed = async ({name, username, preferred_username, password}: SignUpData) => {
-    if(loading){ 
+  const onRegisterPressed = async ({
+    name,
+    username,
+    preferred_username,
+    password,
+  }: SignUpData) => {
+    if (loading) {
       return;
     }
     setLoading(true);
 
     try {
-      const response = await signUp({username, password, 
+      const response = await signUp({
+        username,
+        password,
         options: {
           userAttributes: {
             name,
             preferred_username,
-          }
-        }});
-        navigation.navigate('Confirm email', {username});
+          },
+        },
+      });
+      navigation.navigate('Confirm email', {username});
     } catch (e) {
-      Alert.alert('Oops', (e as Error).message)
-    }finally {
-      setLoading(false)
+      Alert.alert('Oops', (e as Error).message);
+    } finally {
+      setLoading(false);
     }
-
   };
 
   const onSignInPress = () => {
@@ -139,7 +146,7 @@ const SignUpScreen = () => {
         />
 
         <CustomButton
-          text={loading ? "Loading..." : "Sign Up"}
+          text={loading ? 'Loading...' : 'Sign Up'}
           onPress={handleSubmit(onRegisterPressed)}
         />
 
@@ -153,7 +160,6 @@ const SignUpScreen = () => {
             Privacy Policy
           </Text>
         </Text>
-
 
         <CustomButton
           text="Have an account? Sign in"

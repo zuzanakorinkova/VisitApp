@@ -25,41 +25,44 @@ const ConfirmEmailScreen = () => {
   });
 
   const navigation = useNavigation<ConfirmEmailNavigationProp>();
-  const usr = watch('username')
-  const [loading, setLoading] = useState(false)
+  const usr = watch('username');
+  const [loading, setLoading] = useState(false);
 
-  const onConfirmPressed = async ({username, confirmationCode}:ConfirmEmailData) => {
-    if(loading){ 
+  const onConfirmPressed = async ({
+    username,
+    confirmationCode,
+  }: ConfirmEmailData) => {
+    if (loading) {
       return;
     }
     setLoading(true);
 
-    try{
-      await confirmSignUp({username, confirmationCode})
-      navigation.navigate('Sign in')
-    }catch (e){
-      Alert.alert('Oops', (e as Error).message)
-
-    }finally {
-      setLoading(false)
+    try {
+      await confirmSignUp({username, confirmationCode});
+      navigation.navigate('Sign in');
+    } catch (e) {
+      Alert.alert('Oops', (e as Error).message);
+    } finally {
+      setLoading(false);
     }
-
   };
 
   const onSignInPress = () => {
     navigation.navigate('Sign in');
   };
 
-  const onResendPress = async({username = usr}) => {
-    try{
+  const onResendPress = async ({username = usr}) => {
+    try {
       // TODO: Fix
-      await resendSignUpCode({username})
-      
-      Alert.alert('Check your email', 'The code has been sent (make sure you check spam folder as well)')
-    }catch (e){
-      Alert.alert('Oops', (e as Error).message)
+      await resendSignUpCode({username});
+
+      Alert.alert(
+        'Check your email',
+        'The code has been sent (make sure you check spam folder as well)',
+      );
+    } catch (e) {
+      Alert.alert('Oops', (e as Error).message);
     }
-     
   };
 
   return (
@@ -85,7 +88,10 @@ const ConfirmEmailScreen = () => {
           }}
         />
 
-        <CustomButton text={loading ? "Loading..." : "Confirm"} onPress={handleSubmit(onConfirmPressed)} />
+        <CustomButton
+          text={loading ? 'Loading...' : 'Confirm'}
+          onPress={handleSubmit(onConfirmPressed)}
+        />
 
         <CustomButton
           text="Resend code"

@@ -20,22 +20,23 @@ const ForgotPasswordScreen = () => {
   const [loading, setLoading] = useState(false);
 
   const onSendPressed = async ({username}: ForgotPasswordData) => {
-     if(loading){ 
+    if (loading) {
       return;
     }
     setLoading(true);
 
     try {
-    const response = await resetPassword({username});
-     Alert.alert('Check your email', `The code has been sent to ${response.nextStep.codeDeliveryDetails.destination}`)
+      const response = await resetPassword({username});
+      Alert.alert(
+        'Check your email',
+        `The code has been sent to ${response.nextStep.codeDeliveryDetails.destination}`,
+      );
 
-     navigation.navigate('New password')
-    }catch (e) {
-      
-      Alert.alert('Oops', (e as Error).message)
-      
-    }finally {
-      setLoading(false)
+      navigation.navigate('New password');
+    } catch (e) {
+      Alert.alert('Oops', (e as Error).message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -44,26 +45,26 @@ const ForgotPasswordScreen = () => {
   };
 
   return (
-      <View style={styles.root}>
-        <Text style={styles.title}>Reset your password</Text>
+    <View style={styles.root}>
+      <Text style={styles.title}>Reset your password</Text>
 
-        <FormInput
-          name="username"
-          control={control}
-          placeholder="Email"
-          rules={{
-            required: 'Email is required',
-          }}
-        />
+      <FormInput
+        name="username"
+        control={control}
+        placeholder="Email"
+        rules={{
+          required: 'Email is required',
+        }}
+      />
 
-        <CustomButton text="Send" onPress={handleSubmit(onSendPressed)} />
+      <CustomButton text="Send" onPress={handleSubmit(onSendPressed)} />
 
-        <CustomButton
-          text="Back to Sign in"
-          onPress={onSignInPress}
-          type="TERTIARY"
-        />
-      </View>
+      <CustomButton
+        text="Back to Sign in"
+        onPress={onSignInPress}
+        type="TERTIARY"
+      />
+    </View>
   );
 };
 

@@ -1,6 +1,6 @@
-import React from "react";
-import { View, Text, TextInput, StyleSheet } from "react-native";
-import { Control, Controller, Path } from "react-hook-form";
+import React from 'react';
+import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {Control, Controller, Path} from 'react-hook-form';
 import theme from '../../../../theme/colors';
 
 interface ICustomInput<ContentType> {
@@ -15,7 +15,7 @@ function CustomInput<ContentType>({
   control,
   name,
   rules = {},
-  placeholder = "",
+  placeholder = '',
   secureTextEntry = false,
 }: ICustomInput<ContentType>) {
   return (
@@ -23,17 +23,13 @@ function CustomInput<ContentType>({
       control={control}
       name={name}
       rules={rules}
-      render={({
-        field: { value, onChange, onBlur },
-        fieldState: { error },
-      }) => (
+      render={({field: {value, onChange, onBlur}, fieldState: {error}}) => (
         <>
           <View
             style={[
               styles.container,
-              { borderColor: error ? theme.colors.danger : theme.colors.text },
-            ]}
-          >
+              {borderColor: error ? theme.colors.danger : theme.colors.text},
+            ]}>
             <TextInput
               value={value as string}
               onChangeText={onChange}
@@ -45,8 +41,8 @@ function CustomInput<ContentType>({
             />
           </View>
           {error && (
-            <Text style={{ color: theme.colors.danger, alignSelf: "stretch" }}>
-              {error.message || "Error"}
+            <Text style={{color: theme.colors.danger, alignSelf: 'stretch'}}>
+              {error.message || 'Error'}
             </Text>
           )}
         </>
@@ -58,7 +54,7 @@ function CustomInput<ContentType>({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.background,
-    width: "100%",
+    width: '100%',
 
     borderColor: theme.colors.text,
     borderWidth: 2,
