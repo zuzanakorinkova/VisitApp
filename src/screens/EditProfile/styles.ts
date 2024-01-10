@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     borderColor: colors.colors.border,
     color: colors.colors.text,
   },
-  submitBtn: {
+  editBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -41,6 +41,11 @@ const styles = StyleSheet.create({
   },
   submit: {
     color: colors.colors.text,
+    marginRight: 10,
+    fontSize: fonts.size.lg,
+  },
+  signOut: {
+    color: colors.colors.danger,
     marginRight: 10,
     fontSize: fonts.size.lg,
   },

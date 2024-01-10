@@ -4,8 +4,12 @@ import {
   SetStateAction,
   createContext,
   useContext,
+  useEffect,
   useState,
 } from 'react';
+import {getCurrentUser} from 'aws-amplify/auth';
+import {Hub} from 'aws-amplify/utils';
+import {HubCallback} from '@aws-amplify/core';
 
 type AuthUserType = boolean | undefined | null;
 
@@ -23,6 +27,32 @@ const AuthContext = createContext<AuthContextType>({
 
 const AuthContextProvider = ({children}: {children: ReactNode}) => {
   const [isSignedIn, setIsSignedIn] = useState<AuthUserType>(undefined);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      try {
+        const authUser = await getCurrentUser();
+        if (authUser) {
+          setIsSignedIn(true);
+        }
+      } catch (e) {
+        setIsSignedIn(undefined);
+      }
+    };
+    checkUser();
+  }, [isSignedIn]);
+
+  useEffect(() => {
+    const listener: HubCallback = data => {
+      const {event} = data.payload;
+      if (event === 'signedOut') {
+        setIsSignedIn(undefined);
+      }
+    };
+    const subscription = Hub.listen('auth', listener);
+    return () => subscription();
+  }, [isSignedIn]);
+
   return (
     <AuthContext.Provider value={{isSignedIn, setIsSignedIn}}>
       {children}

@@ -3,11 +3,11 @@ import {useForm, Controller, Control} from 'react-hook-form';
 import React from 'react';
 import colors from '../../theme/colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
 import {IUser} from '../../types/models';
 import user from '../../assets/data/user.json';
 import BackButton from '../../components/BackButton';
 import styles from './styles';
-import Button from '../../components/Button';
 import {signOut} from 'aws-amplify/auth';
 
 type IEditableUserField = 'name' | 'username' | 'bio';
@@ -80,8 +80,6 @@ const EditProfileScreen = () => {
   const signOutUser = async () => {
     await signOut();
   };
-
-  console.log(errors);
   return (
     <SafeAreaView>
       <View style={styles.titleContainer}>
@@ -124,20 +122,17 @@ const EditProfileScreen = () => {
               maxLength: {value: 100, message: 'Bio is too long'},
             }}
           />
-          <Pressable onPress={handleSubmit(onSubmit)} style={styles.submitBtn}>
+          <Pressable onPress={handleSubmit(onSubmit)} style={styles.editBtn}>
             <Text style={styles.submit}>Save Changes</Text>
             <AntDesign name="arrowright" size={24} color={colors.colors.text} />
           </Pressable>
         </View>
 
         <View>
-          <Button
-            text="Log out"
-            onPress={signOutUser}
-            backgroundColor={colors.colors.text}
-            color={colors.colors.black}
-            margin={10}
-          />
+          <Pressable onPress={signOutUser} style={styles.editBtn}>
+            <Text style={styles.signOut}>Sign out</Text>
+            <Feather name="log-out" size={24} color={colors.colors.danger} />
+          </Pressable>
         </View>
       </View>
     </SafeAreaView>

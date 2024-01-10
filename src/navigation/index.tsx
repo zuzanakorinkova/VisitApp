@@ -42,17 +42,17 @@ const Navigation = () => {
 
   return (
     <NavigationContainer linking={linking} theme={DarkTheme}>
-      <Stack.Navigator initialRouteName="Auth">
-        {!isSignedIn ? (
+      <Stack.Navigator>
+        {!isSignedIn || isSignedIn === undefined ? (
           <Stack.Screen
-            name="Home"
-            component={BottomTabNavigator}
+            name="Auth"
+            component={AuthStackNavigator}
             options={{headerShown: false}}
           />
         ) : (
           <Stack.Screen
-            name="Auth"
-            component={AuthStackNavigator}
+            name="Home"
+            component={BottomTabNavigator}
             options={{headerShown: false}}
           />
         )}

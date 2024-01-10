@@ -7,7 +7,7 @@ import {SignInNavigationProp} from '../../../types/navigation';
 import fonts from '../../../theme/fonts';
 import theme from '../../../theme/colors';
 import {signIn, type SignInInput} from 'aws-amplify/auth';
-import {useState, useContext} from 'react';
+import {useState} from 'react';
 import {useAuthContext} from '../../../context/AuthContext';
 
 const SignInScreen = () => {
@@ -28,7 +28,6 @@ const SignInScreen = () => {
       if (response.nextStep.signInStep === 'CONFIRM_SIGN_UP') {
         navigation.navigate('Confirm email', {username});
       }
-
       setIsSignedIn(response.isSignedIn);
     } catch (e) {
       Alert.alert('Oops', (e as Error).message);
