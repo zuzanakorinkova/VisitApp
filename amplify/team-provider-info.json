@@ -13,14 +13,17 @@
       "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-visit-staging-205603-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
-      "auth": {
-        "Visit": {}
-      },
       "function": {
         "VisitPostConfirmation": {
           "deploymentBucketName": "amplify-visit-staging-205603-deployment",
           "s3Key": "amplify-builds/VisitPostConfirmation-6d43474772476d783867-build.zip"
         }
+      },
+      "auth": {
+        "Visit": {}
+      },
+      "api": {
+        "Visit": {}
       }
     }
   }

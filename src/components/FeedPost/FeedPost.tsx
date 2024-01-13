@@ -8,9 +8,10 @@ import {IPost} from '../../types/models';
 import DoublePressable from '../DoublePressable';
 import {useNavigation} from '@react-navigation/native';
 import {FeedNavigationProp} from '../../types/navigation';
+import {Post} from '../../API';
 
 interface IFeedPost {
-  post: IPost;
+  post: Post;
 }
 
 const FeedPost = ({post}: IFeedPost) => {
@@ -22,7 +23,9 @@ const FeedPost = ({post}: IFeedPost) => {
   };
 
   const navigateToUser = () => {
-    navigation.navigate('UserProfile', {userId: post.user.id});
+    if (post.User) {
+      navigation.navigate('UserProfile', {userId: post.User.id});
+    }
   };
 
   return (
@@ -35,7 +38,11 @@ const FeedPost = ({post}: IFeedPost) => {
           }}
         />
       </DoublePressable>
-      <View style={[styles.description, {backgroundColor: '#1313136f'}]}>
+      <View
+        style={[
+          styles.description,
+          {backgroundColor: colors.colors.fadedBackground},
+        ]}>
         <Text style={{color: colors.colors.text}}>{post.createdAt}</Text>
         {/* TODO: BLUR EFFECT UNDER DESCRIPTION */}
         <Text style={{color: colors.colors.text, marginTop: 5}}>
@@ -52,7 +59,7 @@ const FeedPost = ({post}: IFeedPost) => {
               fontSize: fonts.size.md,
             }}>
             <Text style={{fontWeight: fonts.weight.normal}}>Posted by</Text>{' '}
-            {post.user.username}
+            {post.User?.username}
           </Text>
         </View>
         <View style={styles.like}>

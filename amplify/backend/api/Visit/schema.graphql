@@ -1,0 +1,53 @@
+type LikePlace @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userID: ID! @index(name: "byUser")
+  placeID: ID! @index(name: "byPlace")
+
+  User: User @belongsTo(fields: ["userID"])
+  Place: Place @belongsTo(fields: ["placeID"])
+}
+
+type Place @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  mainImage: String!
+  images: [String!]
+  title: String!
+  description: String
+  source: String
+  nofLikes: Int!
+  LikePlaces: [LikePlace] @hasMany(indexName: "byPlace", fields: ["id"])
+}
+
+type LikePost @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userID: ID! @index(name: "byUser")
+  postID: ID! @index(name: "byPost")
+
+  User: User @belongsTo(fields: ["userID"])
+  Post: Post @belongsTo(fields: ["postID"])
+}
+
+type Post @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  description: String
+  image: String
+  video: String
+  nofLikes: Int!
+  userID: ID! @index(name: "byUser")
+  User: User @belongsTo(fields: ["userID"])
+  LikePosts: [LikePost] @hasMany(indexName: "byPost", fields: ["id"])
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  email: String!
+  username: String!
+  bio: String
+  website: AWSURL
+  nofPosts: Int!
+  nofLikes: Int!
+  Posts: [Post] @hasMany(indexName: "byUser", fields: ["id"])
+  LikePosts: [LikePost] @hasMany(indexName: "byUser", fields: ["id"])
+  LikePlaces: [LikePlace] @hasMany(indexName: "byUser", fields: ["id"])
+}

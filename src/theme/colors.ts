@@ -4,6 +4,7 @@ const theme = {
         accent: '#6958B4',
         primary: '#DD7D56',
         background: '#010101',
+        fadedBackground: '#0101016f',
         primaryButton: '#181616',
         card: '#141313',
         border: '#EEEEEE',
