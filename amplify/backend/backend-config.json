@@ -67,6 +67,17 @@
   "function": {
     "VisitPostConfirmation": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "Visit"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
