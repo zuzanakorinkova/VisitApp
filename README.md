@@ -1,5 +1,12 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+
+
+
+<img width="1028" alt="Screenshot 2024-01-26 at 20 39 07" src="https://github.com/zuzanakorinkova/VisitApp/assets/44017111/69cfaece-6565-40b4-beed-edd00a363b7d">
+
+
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
