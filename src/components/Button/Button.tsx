@@ -7,6 +7,7 @@ interface IButton {
   margin?: number;
   color: string;
   backgroundColor: string;
+  inline?: boolean;
 }
 
 const Button = ({
@@ -15,12 +16,17 @@ const Button = ({
   color = '',
   backgroundColor = '',
   margin,
+  inline = false,
 }: IButton) => {
   return (
     <Pressable
       style={[
         styles.container,
-        {backgroundColor: backgroundColor, marginLeft: margin},
+        {
+          flex: inline ? 1 : undefined,
+          backgroundColor: backgroundColor,
+          marginLeft: margin,
+        },
       ]}
       onPress={onPress}>
       <Text style={{color: color}}>{text}</Text>
@@ -34,7 +40,6 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderRadius: 50,
     alignItems: 'center',
-    flex: 1,
   },
 });
 

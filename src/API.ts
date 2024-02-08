@@ -94,7 +94,7 @@ export type Post = {
   __typename: "Post",
   id: string,
   description?: string | null,
-  image?: string | undefined,
+  image?: string | undefined | null,
   video?: string | null,
   nofLikes: number,
   userID: string,

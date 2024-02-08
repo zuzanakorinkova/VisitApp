@@ -6,15 +6,15 @@ import colors from '../../theme/colors';
 import user from '../../assets/data/user.json';
 import Button from '../../components/Button/Button';
 import {useNavigation} from '@react-navigation/native';
-import {useRoute} from '@react-navigation/native';
+// import {useRoute} from '@react-navigation/native';
 import {
   ProfileNavigationProp,
-  MyProfileRouteProp,
-  UserProfileRouteProp,
+  // MyProfileRouteProp,
+  // UserProfileRouteProp,
 } from '../../types/navigation';
 
 const ProfileHeader = () => {
-  const route = useRoute<UserProfileRouteProp | MyProfileRouteProp>();
+  // const route = useRoute<UserProfileRouteProp | MyProfileRouteProp>();
   const navigation = useNavigation<ProfileNavigationProp>();
 
   //const {userId} = route.params // later import data with ID from database
@@ -39,12 +39,14 @@ const ProfileHeader = () => {
           <Button
             text="Edit Profile"
             onPress={() => navigation.navigate('EditProfile')}
+            inline
             backgroundColor={colors.colors.primaryButton}
             color={colors.colors.text}
           />
           <Button
             text="Upload Post"
             onPress={() => navigation.navigate('PostUpload')}
+            inline
             backgroundColor={colors.colors.text}
             color={colors.colors.black}
             margin={10}

@@ -1,58 +1,51 @@
-import {View, Text, Image, FlatList} from 'react-native';
+import {View, Text, FlatList, ActivityIndicator} from 'react-native';
 import FeedPost from '../../components/FeedPost';
-import {useTheme} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
-import posts from '../../assets/data/posts.json';
-import {useNavigation} from '@react-navigation/native';
-import {generateClient} from 'aws-amplify/api';
-
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        description
-        image
-        video
-        nofLikes
-        userID
-        createdAt
-        updatedAt
-        User {
-          id
-          name
-          username
-        }
-      }
-      nextToken
-    }
-  }
-`;
+import React from 'react';
+// import {useNavigation} from '@react-navigation/native';
+// import {generateClient} from 'aws-amplify/api';
+import {useQuery} from '@apollo/client';
+import {listPosts} from './queries';
+import {ListPostsQuery, ListPostsQueryVariables} from '../../API';
+import ApiErrorMessage from '../../components/ApiErrorMessage';
 
 const FeedScreen = () => {
-  const {colors} = useTheme();
-  const navigation = useNavigation();
-  const client = generateClient();
-  const [posts, setPosts] = useState([]);
+  // const navigation = useNavigation();
+  // const client = generateClient();
 
-  const fetchPosts = async () => {
-    const response = await client.graphql({query: listPosts});
-    setPosts(response.data.listPosts.items);
-  };
+  // type query in order to see typescript warnings
+  const {data, loading, error} = useQuery<
+    ListPostsQuery,
+    ListPostsQueryVariables
+  >(listPosts);
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  // const [posts, setPosts] = useState([]);
+
+  // const fetchPosts = async () => {
+  //   const response = await client.graphql({query: listPosts});
+  //   setPosts(response.data.listPosts.items);
+  // };
+
+  // useEffect(() => {
+  //   fetchPosts();
+  // }, []);
+
+  if (loading) {
+    return <ActivityIndicator></ActivityIndicator>;
+  }
+
+  if (error) {
+    return (
+      <ApiErrorMessage title="Error fetching posts" message={error.message} />
+    );
+  }
+
+  const posts = data?.listPosts?.items || [];
 
   return (
     <View style={{flex: 1}}>
       <FlatList
         data={posts}
-        renderItem={({item}) => <FeedPost post={item} />}
+        renderItem={({item}) => item && <FeedPost post={item} />}
         showsVerticalScrollIndicator={false}
       />
     </View>

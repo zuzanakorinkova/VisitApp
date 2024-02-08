@@ -4,7 +4,6 @@ import styles from './styles';
 import colors from '../../theme/colors';
 import fonts from '../../theme/fonts';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {IPost} from '../../types/models';
 import DoublePressable from '../DoublePressable';
 import {useNavigation} from '@react-navigation/native';
 import {FeedNavigationProp} from '../../types/navigation';
